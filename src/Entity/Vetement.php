@@ -26,6 +26,31 @@ class Vetement
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $style;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $taille;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $couleur;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $prix;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $vendu = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +76,66 @@ class Vetement
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getStyle(): ?string
+    {
+        return $this->style;
+    }
+
+    public function setStyle(string $style): self
+    {
+        $this->style = $style;
+
+        return $this;
+    }
+
+    public function getTaille(): ?string
+    {
+        return $this->taille;
+    }
+
+    public function setTaille(string $taille): self
+    {
+        $this->taille = $taille;
+
+        return $this;
+    }
+
+    public function getCouleur(): ?string
+    {
+        return $this->couleur;
+    }
+
+    public function setCouleur(string $couleur): self
+    {
+        $this->couleur = $couleur;
+
+        return $this;
+    }
+
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $prix): self
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getVendu(): ?bool
+    {
+        return $this->vendu;
+    }
+
+    public function setVendu(bool $vendu): self
+    {
+        $this->vendu = $vendu;
 
         return $this;
     }

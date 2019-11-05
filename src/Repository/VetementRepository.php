@@ -19,6 +19,15 @@ class VetementRepository extends ServiceEntityRepository
         parent::__construct($registry, Vetement::class);
     }
 
+    public function findAllNonVendu()
+    {
+        return $this->createQueryBuilder('v')
+            ->where('v.vendu = false')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
     // /**
     //  * @return Vetement[] Returns an array of Vetement objects
     //  */
