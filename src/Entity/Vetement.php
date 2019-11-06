@@ -47,9 +47,9 @@ class Vetement
     private $prix;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default" = false})
      */
-    private $vendu = false;
+    private $vendu;
 
     public function getId(): ?int
     {

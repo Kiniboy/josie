@@ -25,7 +25,6 @@ class VetementsController extends AbstractController
 
     public function index(): Response
     {
-        /** recuperer les objets vetements et les envoyés à la vue */
         $this->repository->findAllNonVendu();
         return $this->render('vetements/index.html.twig');
     }
