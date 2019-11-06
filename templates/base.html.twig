@@ -15,7 +15,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link " href="{{ path('vetements') }}">Les Vetements</a>
+                <a class="nav-item nav-link {% if menu is defined and menu == 'vetements' %} active {% endif %} " href="{{ path('vetements') }}">Les Vetements</a>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">

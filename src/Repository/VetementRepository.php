@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Vetement;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @method Vetement|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,14 +20,35 @@ class VetementRepository extends ServiceEntityRepository
         parent::__construct($registry, Vetement::class);
     }
 
-    public function findAllNonVendu()
+    /**
+     * @return Vetement[]
+     */
+    public function findAllNonVendu(): array
     {
-        return $this->createQueryBuilder('v')
-            ->where('v.vendu = false')
+        return $this->findAllQuery()
             ->getQuery()
             ->getResult()
             ;
     }
+
+    public function findAllVendu(): array
+    {
+        return $this->findAllQuery()
+            ->where("v.vendu = true")
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
+
+    private function findAllQuery(): QueryBuilder
+    {
+        return $this->createQueryBuilder('v')
+            ->where("v.vendu = false");
+    }
+
+
 
     // /**
     //  * @return Vetement[] Returns an array of Vetement objects
