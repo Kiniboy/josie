@@ -12,6 +12,9 @@ accessoires:
   path: /accessoires
   controller: App\Controller\AccessoiresController::index
 
+details:
+  path: /vetement.details
+  controller: App\Controller\VetementsController::details
 
 #index:
 #    path: /

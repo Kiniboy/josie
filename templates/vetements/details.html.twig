@@ -1,9 +1,28 @@
-{% block title %}
+{% extends 'base.html.twig' %}
 
-{% endblock %}
+{% block title %} Détails {% endblock %}
 
 {% block body %}
 
-    <h1> {{ vetement.title }}</h1>
+    <div class="container mt-4">
+        <div class="raw">
+            {# Photo du produit #}
+        </div>
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+            <h1> "Hello World" </h1> {# en twigg #}
+            <h2> "Description du produit" </h2>   {# en twigg #}
+            <h2> "Sa couleur" </h2>   {# en twigg #}
+            <h2> "Son style" </h2>    {# en twigg #}
+            <h5> "Son prix" € </h5>     {# en twigg #}
+        </div>
+
+    </div>
+
+
+
+
 
 {% endblock %}

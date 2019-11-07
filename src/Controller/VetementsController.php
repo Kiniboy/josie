@@ -3,11 +3,12 @@
 namespace App\Controller;
 
 
+use App\Entity\Vetement;
 use App\Repository\VetementRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+
 
 
 class VetementsController extends AbstractController
@@ -45,17 +46,10 @@ class VetementsController extends AbstractController
     ]);
     }
 
-    /**
-     * @Route(/vetements/{slug}-{id}, name="vetements.index", requirements={"slug": "[a-z0-9\-|*]"})
-     * @return Response
-     */
+
     public function details(): Response
     {
-
-        /** @var TYPE_NAME $vetements */
-        return $this->render('vetements/details.html.twig', [
-            "vetements" => $vetements
-    ]);
+        return $this->render('vetements/details.html.twig');
     }
 
 

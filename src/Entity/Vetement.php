@@ -86,10 +86,6 @@ class Vetement          // instance de l'objet vetement
         return $this;
     }
 
-    public function getSlug(): string {
-        $slugify = new Slugify();
-        return $slugify->slugify($this->title); // slugyfier le titre dans l'url, pour gérer les redirections et simplifier l'url
-    }
 
     public function getDescription(): ?string
     {
