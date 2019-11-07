@@ -3,12 +3,21 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VetementRepository")
  */
-class Vetement
+class Vetement          // instance de l'objet vetement
 {
+    //
+    //
+    //
+    // VARIABLES: propriétés de l'objet vetement
+    //
+    //
+    //
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -51,6 +60,15 @@ class Vetement
      */
     private $vendu;
 
+
+    //
+    //
+    //
+    // GETTERS ET SETTERS
+    //
+    //
+    //
+
     public function getId(): ?int
     {
         return $this->id;
@@ -66,6 +84,11 @@ class Vetement
         $this->title = $title;
 
         return $this;
+    }
+
+    public function getSlug(): string {
+        $slugify = new Slugify();
+        return $slugify->slugify($this->title); // slugyfier le titre dans l'url, pour gérer les redirections et simplifier l'url
     }
 
     public function getDescription(): ?string
@@ -128,7 +151,7 @@ class Vetement
         return $this;
     }
 
-    public function getVendu(): ?bool
+    public function getVendu(): ?bool // permet de séparer les articles vendus et non vendus
     {
         return $this->vendu;
     }

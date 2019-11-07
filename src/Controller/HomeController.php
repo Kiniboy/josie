@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class HomeController extends AbstractController
 {
 
-    public function index(): Response
+    public function index(): Response  // retourne une vue en twig
     {
         return new Response($this->render('pages/home.html.twig'));
     }

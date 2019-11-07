@@ -1,11 +1,30 @@
 {% extends 'base.html.twig' %}
-{% block title %}Vetements{% endblock %}
+{% block title %}Vetements{% endblock %} {# Page Les Vetements #}
 
 {% block body %}
     <div class="jumbotron text-center">
         <div class="container">
-            <h1>Les vetements</h1>
-            <p>La cliente souhaitera augmenter son chiffre d’affaire en développant un site internet présentant tous ses produits, ainsi qu’un formulaire de contact afin d’avoir directement des retours de ces clients, et ainsi créer un premier contact, car son activité est essentiellement basée sur le passage, dû à sa localisation favorisée.</p>
+            <h1>Les vêtements</h1>
+        </div>
+    </div>
+    <div class="container"> {# carte de l'objet vetement et ses propriétés #}
+        <div class="row flex">
+            {% for vetement in vetements %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('vetements.details', {id: vetement.id, slug: vetement.slug})  }}">{{ vetement.title }}</a>
+                            </h5>
+                            <p class="card-text">{{ vetement.description }}
+                            </p>
+                            <div class="text-primary" style="font-weight: bold; font-size: 2rem">{{ vetement.prix }} €</div>
+
+                        </div>
+                    </div>
+                </div>
+
+            {%  endfor %}
         </div>
     </div>
 {% endblock %}

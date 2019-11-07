@@ -13,7 +13,7 @@ use Doctrine\ORM\QueryBuilder;
  * @method Vetement[]    findAll()
  * @method Vetement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class VetementRepository extends ServiceEntityRepository
+class VetementRepository extends ServiceEntityRepository  // lien entre la classe vetement et la base de donnees
 {
     public function __construct(ManagerRegistry $registry)
     {
@@ -23,7 +23,7 @@ class VetementRepository extends ServiceEntityRepository
     /**
      * @return Vetement[]
      */
-    public function findAllNonVendu(): array
+    public function findAllNonVendu(): array  // fonction qui retourne les articles non vendu
     {
         return $this->findAllQuery()
             ->getQuery()
@@ -31,7 +31,7 @@ class VetementRepository extends ServiceEntityRepository
             ;
     }
 
-    public function findAllVendu(): array
+    public function findAllVendu(): array  // fonction qui retourne les articles vendu, non utilisées pour le moment
     {
         return $this->findAllQuery()
             ->where("v.vendu = true")
@@ -42,7 +42,7 @@ class VetementRepository extends ServiceEntityRepository
 
 
 
-    private function findAllQuery(): QueryBuilder
+    private function findAllQuery(): QueryBuilder // fonction qui retourne les articles non vendu également, peut etre modifier en fonction qui retourne tout les articles, il faudra donc modifier findAllNonVendu
     {
         return $this->createQueryBuilder('v')
             ->where("v.vendu = false");

@@ -1,3 +1,6 @@
+
+# Les routes: définissent le chemin entre le lien et le code correspondant
+
 home:
   path: /
   controller: App\Controller\HomeController::index
@@ -8,6 +11,7 @@ vetements:
 accessoires:
   path: /accessoires
   controller: App\Controller\AccessoiresController::index
+
 
 #index:
 #    path: /
