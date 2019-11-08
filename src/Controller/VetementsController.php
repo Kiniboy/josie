@@ -26,6 +26,7 @@ class VetementsController extends AbstractController
 
 
 
+
     public function __construct(VetementRepository $repository, ObjectManager $em) // fonction constructeur qui instancie le répository
     {
         $this-> repository = $repository;
@@ -46,10 +47,18 @@ class VetementsController extends AbstractController
     ]);
     }
 
-
-    public function details(): Response
+    /**
+     * @param VetementRepository $repository
+     * @param int $id
+     * @return Response
+     */
+    public function details(VetementRepository $repository, int $id): Response
     {
-        return $this->render('vetements/details.html.twig');
+        $vetement = $repository->find($id);
+
+        return $this->render('vetements/details.html.twig', [
+            "vetement" => $vetement
+        ]);
     }
 
 

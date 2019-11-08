@@ -13,7 +13,7 @@ accessoires:
   controller: App\Controller\AccessoiresController::index
 
 details:
-  path: /vetement.details
+  path: /vetements/{id}
   controller: App\Controller\VetementsController::details
 
 #index:

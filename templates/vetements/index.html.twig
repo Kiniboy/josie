@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <a href="{{ path('details')  }}">{{ vetement.title }}</a>
+                                <a href="{{ path('details', { id: vetement.id })  }}">{{ vetement.title }}</a>
                             </h5>
                             <p class="card-text">{{ vetement.description }}
                             </p>
