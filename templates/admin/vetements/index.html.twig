@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Gérer les articles' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Gérer les articles</h1>
+
+        {% for message in app.flashes('success') %}    {# afficher le message flash dans la vue #}
+
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for vetement in vetements %}
+
+            <tr>
+                <td>{{ vetement.title }}</td>
+                <td>
+                    <a href="{{ path('edit', {id: vetement.id}) }}" class="btn btn-primary">Editer</a>
+                    <form method="post" action="{{ path('delete', {id: vetement.id}) }}" style="display: inline-block" onsubmit="return confirm('Êtes vous vraiment sûr ?')">
+                        <input type="hidden" name="_method" value="DELETE">  {# _method inclus dans symfony pour changer la methode post #}
+                        <button class="btn btn-danger ml-4">Supprimer l'article</button>
+                    </form>
+                </td>
+            </tr>
+
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="text-right">
+            <a href="{{ path('new') }}" class="btn btn-primary"> Créer un article </a>
+        </div>
+
+    </div>
+{% endblock %}

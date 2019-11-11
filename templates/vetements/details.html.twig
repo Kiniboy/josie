@@ -4,21 +4,50 @@
 
 {% block body %}
 
-    <div class="container mt-4">
-        <div class="raw">
-            {# Photo du produit #}
-        </div>
-        <div class="col-md-8">
+
+    <div class="jumbotron">
+
+        <div class="container">
+
+                <div class="col-md-8">
+
+                </div>
+
+                <h1> {{ vetement.title }} </h1>
+
+                    <div class="text-primary" style="font-weight: bold; font-size: 2rem">{{ vetement.prix }} €</div>
+                    <a href="#" class="btn btn-primary"> Réserver l'article</a>
 
         </div>
-        <div class="col-md-4">
-            {{ dump(vetement) }}
-            <h1> {{ vetement.title }} </h1> {# en twigg #}
-            <h2> "Description du produit" </h2>   {# en twigg #}
-            <h2> "Sa couleur" </h2>   {# en twigg #}
-            <h2> "Son style" </h2>    {# en twigg #}
-            <h5> "Son prix" € </h5>     {# en twigg #}
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            {# Photo du produit #}
+            <div class="col-md-8">
+
         </div>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"> Description </h5>
+                    <p class="card-text">{{ vetement.description | nl2br }} </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <h2> Caractéristiques </h2>
+                    <table class="table table-striped">
+                        <tr>
+                            <td> Style </td>
+                            <td> {{ vetement.style }} </td>
+                        </tr>
+                        <tr>
+                            <td> Couleur </td>
+                            <td> {{ vetement.couleur }} </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
     </div>
 
 

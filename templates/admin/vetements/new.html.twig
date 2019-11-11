@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Création l'article</h1>
+
+        {{ form_start(form) }}
+        {{ form_rest(form) }}
+        <button class="btn btn-success"> Créer </button>
+        {{ form_end(form) }}
+    </div>
+{%  endblock %}
+
+{% block title %}
+{% endblock %}

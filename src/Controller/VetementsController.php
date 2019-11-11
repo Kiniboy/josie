@@ -52,7 +52,7 @@ class VetementsController extends AbstractController
      * @param int $id
      * @return Response
      */
-    public function details(VetementRepository $repository, int $id): Response
+    public function details(VetementRepository $repository, int $id): Response  // voir le détail d'un article
     {
         $vetement = $repository->find($id);
 

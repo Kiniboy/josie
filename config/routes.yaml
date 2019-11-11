@@ -16,6 +16,25 @@ details:
   path: /vetements/{id}
   controller: App\Controller\VetementsController::details
 
+admin:
+  path: /admin/{id}
+  controller: App\Controller\Admin\AdminVetementController::index
+
+edit:
+  path: /edit/{id}
+  methods: GET|POST
+  controller: App\Controller\Admin\AdminVetementController::edit
+
+new:
+  path: /new
+  controller: App\Controller\Admin\AdminVetementController::new
+
+delete:
+  path: /delete/{id}
+  methods: DELETE
+  controller: App\Controller\Admin\AdminVetementController::delete
+
+
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
